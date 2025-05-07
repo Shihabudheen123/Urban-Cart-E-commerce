@@ -7,41 +7,59 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <header className="h-25 shadow-md bg-white">
-      <div className="h-full container mx-auto  flex items-center px-4 py-2 justify-between">
-        <div className="">
-          <Link to={"/"}>
+    <header className="h-20 shadow-sm bg-white fixed top-0 left-0 w-full z-50 border-b border-gray-100">
+      <div className="h-full container mx-auto flex items-center px-4 justify-between">
+        {/* Logo - Original Size */}
+        <div className="flex-shrink-0">
+          <Link to={"/"} className="block">
             <Logo w={70} h={30} />
           </Link>
         </div>
-        <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2">
-          <input
-            type="text"
-            placeholder="search product here..."
-            className="w-full outline-none "
-          />
-          <div className="text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white">
-            <GrSearch />
+  
+        {/* Search Bar */}
+        <div className="hidden lg:flex items-center w-full max-w-md mx-8">
+          <div className="relative w-full group">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="w-full py-2 px-4 rounded-full border border-gray-200 focus:border-red-400 focus:ring-2 focus:ring-red-100 outline-none transition-all duration-200 shadow-sm hover:shadow-md"
+            />
+            <button className="absolute right-0 top-0 h-full aspect-square bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center transition-all duration-200">
+              <GrSearch className="text-lg" />
+            </button>
           </div>
         </div>
-        <div className="flex items-center gap-7">
-          <div className="text-3xl cursor-pointer">
-            <FaRegCircleUser />
-          </div>
-          <div className="text-2xl relative">
-            <span>
-              <FaShoppingCart />
+  
+        {/* Navigation Icons */}
+        <div className="flex items-center gap-6">
+          {/* User Account */}
+          <div className="text-gray-700 hover:text-red-600 cursor-pointer transition-colors duration-200 relative group">
+            <FaRegCircleUser className="text-2xl" />
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+              Account
             </span>
-            <div className="bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3 ">
-              <p className="text-sm">0</p>
-            </div>
           </div>
+  
+          {/* Shopping Cart */}
+          <div className="text-gray-700 hover:text-red-600 cursor-pointer transition-colors duration-200 relative group">
+            <div className="relative">
+              <FaShoppingCart className="text-2xl" />
+              <div className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                0
+              </div>
+            </div>
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+              Cart
+            </span>
+          </div>
+  
+          {/* Login Button */}
           <div>
             <Link
               to={"/login"}
-              className="px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700"
+              className="px-4 py-1.5 rounded-full text-white bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 shadow-md hover:shadow-lg transition-all duration-200 font-medium text-sm"
             >
-              Login 
+              Login
             </Link>
           </div>
         </div>
