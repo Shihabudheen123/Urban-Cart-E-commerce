@@ -31,6 +31,7 @@ if(user){
 
         const payload= {
             ...req.body,
+            Role:"GENERAL",
             password:hashPassword
         }
 

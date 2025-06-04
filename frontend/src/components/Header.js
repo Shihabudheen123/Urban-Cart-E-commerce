@@ -3,16 +3,16 @@ import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import logo from '../assest/logo.png'
 
 const Header = () => {
   return (
     <header className="h-20 shadow-sm bg-white fixed top-0 left-0 w-full z-50 border-b border-gray-100">
       <div className="h-full container mx-auto flex items-center px-4 justify-between">
         {/* Logo - Original Size */}
-        <div className="flex-shrink-0">
-          <Link to={"/"} className="block">
-            <Logo w={70} h={30} />
+        <div className="flex-shrink-0 ">
+          <Link to={"/"} className="block ">
+            <img src={logo} alt="logo" className='h-16 w-auto'/>
           </Link>
         </div>
   
