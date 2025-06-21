@@ -4,8 +4,12 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from '../assest/logo.png'
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const user = useSelector(state => state?.user?.user)
+  console.log("user header" , user);
+  
   return (
     <header className="h-20 shadow-sm bg-white fixed top-0 left-0 w-full z-50 border-b border-gray-100">
       <div className="h-full container mx-auto flex items-center px-4 justify-between">
@@ -34,7 +38,15 @@ const Header = () => {
         <div className="flex items-center gap-6">
           {/* User Account */}
           <div className="text-gray-700 hover:text-red-600 cursor-pointer transition-colors duration-200 relative group">
+           
+           {
+            user?.profilepic ? (
+<img src={user.profilepic} alt={user?.name} className="w-10 h-10 rounded-full"/>
+            ):(
             <FaRegCircleUser className="text-2xl" />
+
+            )
+           }
             <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
               Account
             </span>
